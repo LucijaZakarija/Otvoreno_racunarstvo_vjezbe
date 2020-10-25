@@ -1,0 +1,234 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.2
+-- Dumped by pg_dump version 12.2
+
+-- Started on 2020-10-25 17:16:30
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 202 (class 1259 OID 24999)
+-- Name: album; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.album (
+    albumtitle character varying NOT NULL,
+    wikipedia character varying NOT NULL,
+    artist character varying NOT NULL,
+    genre character varying NOT NULL,
+    length time without time zone NOT NULL,
+    label character varying NOT NULL,
+    released date NOT NULL,
+    metacritic integer NOT NULL,
+    numberofsingles integer NOT NULL
+);
+
+
+ALTER TABLE public.album OWNER TO postgres;
+
+--
+-- TOC entry 203 (class 1259 OID 25007)
+-- Name: song; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.song (
+    songtitle character varying NOT NULL,
+    albumtitle character varying NOT NULL
+);
+
+
+ALTER TABLE public.song OWNER TO postgres;
+
+--
+-- TOC entry 2822 (class 0 OID 24999)
+-- Dependencies: 202
+-- Data for Name: album; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.album (albumtitle, wikipedia, artist, genre, length, label, released, metacritic, numberofsingles) FROM stdin;
+Wiped Out!	https://en.wikipedia.org/wiki/Wiped_Out!	The Neighbourhood	Alternative rock	00:45:18	Columbia	2015-10-13	53	1
+I love you	 https://en.wikipedia.org/wiki/I_Love_You_(The_Neighbourhood_album)	The Neighbourhood	Alternative rock	00:45:46	Columbia	2013-04-22	48	4
+The Neighbourhood	 https://en.wikipedia.org/wiki/The_Neighbourhood_(album) 	The Neighbourhood	Dark pop	00:42:58	Columbia	2018-03-09	62	1
+Hot Pink	 https://en.wikipedia.org/wiki/Hot_Pink_(album)	Doja Cat	Pop	00:39:48	Kemosabe	2019-11-08	73	6
+Moth	 https://en.wikipedia.org/wiki/Moth_(album)	Chairlift	Indie pop	00:40:43	Columbia	2016-01-22	73	2
+Tranquility Base Hotel & Casino	 https://en.wikipedia.org/wiki/Tranquility_Base_Hotel_%26_Casino	Arctic Monkeys	Lounge pop	00:40:51	Domino	2018-05-11	76	2
+Humbug	 https://en.wikipedia.org/wiki/Humbug_(album)	Arctic Monkeys	Psychedelic rock	00:39:15	Domino	2009-08-19	75	3
+Suck It and See	 https://en.wikipedia.org/wiki/Suck_It_and_See	Arctic Monkeys	Pop rock	00:40:04	Domino	2011-06-06	74	4
+Favourite Worst Nightmare	 https://en.wikipedia.org/wiki/Favourite_Worst_Nightmare	Arctic Monkeys	Pop-punk revival	00:37:18	Domino	2011-06-06	82	3
+Whatever People Say I Am, Thats What Im Not	 https://en.wikipedia.org/wiki/Whatever_People_Say_I_Am,_That%27s_What_I%27m_Not	Arctic Monkeys	Indie rock	00:40:05	Domino	2006-01-23	82	2
+\.
+
+
+--
+-- TOC entry 2823 (class 0 OID 25007)
+-- Dependencies: 203
+-- Data for Name: song; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.song (songtitle, albumtitle) FROM stdin;
+ A Moment of Silence	Wiped Out!
+Prey	Wiped Out!
+Crybaby	Wiped Out!
+Wiped out!	Wiped Out!
+The Beach	Wiped Out!
+Daddy Issues	Wiped Out!
+ Baby Came Home 2 / Valentines	Wiped Out!
+ Greetings from Califournia	Wiped Out!
+Ferrari	Wiped Out!
+Single	Wiped Out!
+R.I.P. 2 My Youth	Wiped Out!
+How	I love you
+Afraid	I love you
+Everybodys Watching Me(Uh Oh)	I love you
+Sweater Weather	I love you
+Let it go	I love you
+Alleyways	I love you
+ W.D.Y.W.F.M?	I love you
+Flawless	I love you
+Female Robbery	I love you
+Staying Up	I love you
+Float	I love you
+Flowers	The Neighbourhood
+Scary love	The Neighbourhood
+Nervous	The Neighbourhood
+Void	The Neighbourhood
+Softcore	The Neighbourhood
+Blue	The Neighbourhood
+Sadderdaze	The Neighbourhood
+Revenge	The Neighbourhood
+You get me so high	The Neighbourhood
+Reflections	The Neighbourhood
+Too serious	The Neighbourhood
+Stuck with me	The Neighbourhood
+Cyber  S**	Hot Pink
+Wont Bite	Hot Pink
+Rules	Hot Pink
+Bottom bi**	Hot Pink
+Say So	Hot Pink
+Like That	Hot Pink
+Talk Dirty	Hot Pink
+Addiction	Hot Pink
+Streets	Hot Pink
+Shine	Hot Pink
+Better than me	Hot Pink
+Juicy	Hot Pink
+Look Up	Moth
+Polymorphing	Moth
+Romeo	Moth
+Ch-Ching	Moth
+Crying in Public	Moth
+Ottawa to Osaka	Moth
+Moth to the Flame	Moth
+Show U Off	Moth
+Unfinished Business	Moth
+NO Such Thing As Ilusion	Moth
+Star Treatment	Tranquility Base Hotel & Casino
+One Point Perspective	Tranquility Base Hotel & Casino
+American Sports	Tranquility Base Hotel & Casino
+ Tranquility Base Hotel & Casino  	Tranquility Base Hotel & Casino
+Golden Trunks	Tranquility Base Hotel & Casino
+Four out of Five	Tranquility Base Hotel & Casino
+The Worlds First Ever  Monster Truck Front Flip	Tranquility Base Hotel & Casino
+Science Fiction	Tranquility Base Hotel & Casino
+She Looks Like Fun	Tranquility Base Hotel & Casino
+Batphone	Tranquility Base Hotel & Casino
+The Ultracheese	Tranquility Base Hotel & Casino
+My Propeller	Humbug
+Crying Lightning	Humbug
+Dangerous Animals	Humbug
+Secret Door	Humbug
+Potion Approaching	Humbug
+Fire and the Thud	Humbug
+Cornerstone	Humbug
+Dance Litlle Liar	Humbug
+Pretty Visitors	Humbug
+The Jewellers Hands	Humbug
+ Shes Thunderstorms	Suck It and See
+ Black Treacle	Suck It and See
+ Brick by Brick	Suck It and See
+The Hellcat Spangled Shalalala	Suck It and See
+Dont Sit Down Cause Ive Moved Your Chair	Suck It and See
+ Library Pictures	Suck It and See
+ All My Own Stunts	Suck It and See
+ Reckless Serenade	Suck It and See
+ Piledriver Waltz	Suck It and See
+ Love Is a Laserquest	Suck It and See
+ Suck It and See	Suck It and See
+ Thats Where Youre Wrong	Suck It and See
+Brianstorm	Favourite Worst Nightmare
+Teddy Picker	Favourite Worst Nightmare
+D is for Dangerous	Favourite Worst Nightmare
+Balaclava	Favourite Worst Nightmare
+Flouroscent Adolescent	Favourite Worst Nightmare
+Only Ones Who Know	Favourite Worst Nightmare
+Do Me A Favour	Favourite Worst Nightmare
+This House Is A Circus	Favourite Worst Nightmare
+ If You Were There, Beware	Favourite Worst Nightmare
+ The Bad Thing	Favourite Worst Nightmare
+ Old Yellow Bricks	Favourite Worst Nightmare
+505	Favourite Worst Nightmare
+ The View from the Afternoon	Whatever People Say I Am, Thats What Im Not
+ I Bet You Look Good on the Dancefloor	Whatever People Say I Am, Thats What Im Not
+ Fake Tales of San Francisco	Whatever People Say I Am, Thats What Im Not
+ Dancing Shoes	Whatever People Say I Am, Thats What Im Not
+ You Probably Couldnt See for the Lights but You Were Staring Straight at Me	Whatever People Say I Am, Thats What Im Not
+ Still Take You Home	Whatever People Say I Am, Thats What Im Not
+Riot Van	Whatever People Say I Am, Thats What Im Not
+ Red Light Indicates Doors Are Secured	Whatever People Say I Am, Thats What Im Not
+ Mardy Bum	Whatever People Say I Am, Thats What Im Not
+ Perhaps Vampires Is a Bit Strong But..	Whatever People Say I Am, Thats What Im Not
+ When the Sun Goes Down	Whatever People Say I Am, Thats What Im Not
+ From the Ritz to the Rubble	Whatever People Say I Am, Thats What Im Not
+ A Certain Romance	Whatever People Say I Am, Thats What Im Not
+\.
+
+
+--
+-- TOC entry 2692 (class 2606 OID 25006)
+-- Name: album album_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.album
+    ADD CONSTRAINT album_pkey PRIMARY KEY (albumtitle);
+
+
+--
+-- TOC entry 2694 (class 2606 OID 25014)
+-- Name: song song_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.song
+    ADD CONSTRAINT song_pkey PRIMARY KEY (songtitle);
+
+
+--
+-- TOC entry 2695 (class 2606 OID 25015)
+-- Name: song song_albumtitle_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.song
+    ADD CONSTRAINT song_albumtitle_fkey FOREIGN KEY (albumtitle) REFERENCES public.album(albumtitle);
+
+
+-- Completed on 2020-10-25 17:16:30
+
+--
+-- PostgreSQL database dump complete
+--
+
