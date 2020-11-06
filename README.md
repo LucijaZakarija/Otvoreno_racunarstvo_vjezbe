@@ -1,6 +1,8 @@
-# lab1_OR
-Prva lab. vježba iz predmeta Otvoreno Računarstvo.  
-Cilj vježbe je napraviti otvoreni skup podataka. Moja tema su glazbeni albumi.
-Vježba se sastoji od json i csv datoteke, i dumpa baze podataka.  
-Baza je napisana na engleskom jeziku. U njoj se nalaze tablice album i song.
-
+# Otvoreno_racunarstvo_vjezbe
+Laboratorijske vježbe iz predmeta Otvoreno računarstvo.
+Otvorena licencija: Creative Commons Zero v1.0 Universal
+Autor : Lucija Zakarija
+Verzija : 2.0
+Jezik : engleski
+U bazi se nalaze 2 entiteta : Album i Song
+Atributi navedeni u CSV i JSON datotekama :
