@@ -5,7 +5,7 @@
 -- Dumped from database version 12.2
 -- Dumped by pg_dump version 12.2
 
--- Started on 2020-10-25 17:16:30
+-- Started on 2020-11-09 20:25:39
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 202 (class 1259 OID 24999)
+-- TOC entry 202 (class 1259 OID 25022)
 -- Name: album; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -32,8 +32,8 @@ CREATE TABLE public.album (
     wikipedia character varying NOT NULL,
     artist character varying NOT NULL,
     genre character varying NOT NULL,
-    length time without time zone NOT NULL,
-    label character varying NOT NULL,
+    lengthalbum time without time zone NOT NULL,
+    musiclabel character varying NOT NULL,
     released date NOT NULL,
     metacritic integer NOT NULL,
     numberofsingles integer NOT NULL
@@ -43,164 +43,165 @@ CREATE TABLE public.album (
 ALTER TABLE public.album OWNER TO postgres;
 
 --
--- TOC entry 203 (class 1259 OID 25007)
+-- TOC entry 203 (class 1259 OID 25030)
 -- Name: song; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.song (
     songtitle character varying NOT NULL,
-    albumtitle character varying NOT NULL
+    fromalbum character varying NOT NULL,
+    lengthsong time without time zone NOT NULL
 );
 
 
 ALTER TABLE public.song OWNER TO postgres;
 
 --
--- TOC entry 2822 (class 0 OID 24999)
+-- TOC entry 2822 (class 0 OID 25022)
 -- Dependencies: 202
 -- Data for Name: album; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.album (albumtitle, wikipedia, artist, genre, length, label, released, metacritic, numberofsingles) FROM stdin;
-Wiped Out!	https://en.wikipedia.org/wiki/Wiped_Out!	The Neighbourhood	Alternative rock	00:45:18	Columbia	2015-10-13	53	1
-I love you	 https://en.wikipedia.org/wiki/I_Love_You_(The_Neighbourhood_album)	The Neighbourhood	Alternative rock	00:45:46	Columbia	2013-04-22	48	4
-The Neighbourhood	 https://en.wikipedia.org/wiki/The_Neighbourhood_(album) 	The Neighbourhood	Dark pop	00:42:58	Columbia	2018-03-09	62	1
-Hot Pink	 https://en.wikipedia.org/wiki/Hot_Pink_(album)	Doja Cat	Pop	00:39:48	Kemosabe	2019-11-08	73	6
-Moth	 https://en.wikipedia.org/wiki/Moth_(album)	Chairlift	Indie pop	00:40:43	Columbia	2016-01-22	73	2
-Tranquility Base Hotel & Casino	 https://en.wikipedia.org/wiki/Tranquility_Base_Hotel_%26_Casino	Arctic Monkeys	Lounge pop	00:40:51	Domino	2018-05-11	76	2
-Humbug	 https://en.wikipedia.org/wiki/Humbug_(album)	Arctic Monkeys	Psychedelic rock	00:39:15	Domino	2009-08-19	75	3
-Suck It and See	 https://en.wikipedia.org/wiki/Suck_It_and_See	Arctic Monkeys	Pop rock	00:40:04	Domino	2011-06-06	74	4
-Favourite Worst Nightmare	 https://en.wikipedia.org/wiki/Favourite_Worst_Nightmare	Arctic Monkeys	Pop-punk revival	00:37:18	Domino	2011-06-06	82	3
-Whatever People Say I Am, Thats What Im Not	 https://en.wikipedia.org/wiki/Whatever_People_Say_I_Am,_That%27s_What_I%27m_Not	Arctic Monkeys	Indie rock	00:40:05	Domino	2006-01-23	82	2
+COPY public.album (albumtitle, wikipedia, artist, genre, lengthalbum, musiclabel, released, metacritic, numberofsingles) FROM stdin;
+Wiped Out!	Wiped_Out!	The Neighbourhood	Alternative rock	00:45:18	Columbia	2015-10-13	53	1
+I love you	I_Love_You_(The_Neighbourhood_album)	The Neighbourhood	Alternative rock	00:45:46	Columbia	2013-04-22	48	4
+The Neighbourhood	 The_Neighbourhood_(album) 	The Neighbourhood	Dark pop	00:42:58	Columbia	2018-03-09	62	1
+Hot Pink	Hot_Pink_(album)	Doja Cat	Pop	00:39:48	Kemosabe	2019-11-08	73	6
+Moth	 Moth_(album)	Chairlift	Indie pop	00:40:43	Columbia	2016-01-22	73	2
+Tranquility Base Hotel & Casino	Tranquility_Base_Hotel_%26_Casino	Arctic Monkeys	Lounge pop	00:40:51	Domino	2018-05-11	76	2
+Humbug	 Humbug_(album)	Arctic Monkeys	Psychedelic rock	00:39:15	Domino	2009-08-19	75	3
+Suck It and See	 Suck_It_and_See	Arctic Monkeys	Pop rock	00:40:04	Domino	2011-06-06	74	4
+Favourite Worst Nightmare	 Favourite_Worst_Nightmare	Arctic Monkeys	Pop-punk revival	00:37:18	Domino	2011-06-06	82	3
+Whatever People Say I Am, Thats What Im Not	Whatever_People_Say_I_Am,_That%27s_What_I%27m_Not	Arctic Monkeys	Indie rock	00:40:05	Domino	2006-01-23	82	2
 \.
 
 
 --
--- TOC entry 2823 (class 0 OID 25007)
+-- TOC entry 2823 (class 0 OID 25030)
 -- Dependencies: 203
 -- Data for Name: song; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.song (songtitle, albumtitle) FROM stdin;
- A Moment of Silence	Wiped Out!
-Prey	Wiped Out!
-Crybaby	Wiped Out!
-Wiped out!	Wiped Out!
-The Beach	Wiped Out!
-Daddy Issues	Wiped Out!
- Baby Came Home 2 / Valentines	Wiped Out!
- Greetings from Califournia	Wiped Out!
-Ferrari	Wiped Out!
-Single	Wiped Out!
-R.I.P. 2 My Youth	Wiped Out!
-How	I love you
-Afraid	I love you
-Everybodys Watching Me(Uh Oh)	I love you
-Sweater Weather	I love you
-Let it go	I love you
-Alleyways	I love you
- W.D.Y.W.F.M?	I love you
-Flawless	I love you
-Female Robbery	I love you
-Staying Up	I love you
-Float	I love you
-Flowers	The Neighbourhood
-Scary love	The Neighbourhood
-Nervous	The Neighbourhood
-Void	The Neighbourhood
-Softcore	The Neighbourhood
-Blue	The Neighbourhood
-Sadderdaze	The Neighbourhood
-Revenge	The Neighbourhood
-You get me so high	The Neighbourhood
-Reflections	The Neighbourhood
-Too serious	The Neighbourhood
-Stuck with me	The Neighbourhood
-Cyber  S**	Hot Pink
-Wont Bite	Hot Pink
-Rules	Hot Pink
-Bottom bi**	Hot Pink
-Say So	Hot Pink
-Like That	Hot Pink
-Talk Dirty	Hot Pink
-Addiction	Hot Pink
-Streets	Hot Pink
-Shine	Hot Pink
-Better than me	Hot Pink
-Juicy	Hot Pink
-Look Up	Moth
-Polymorphing	Moth
-Romeo	Moth
-Ch-Ching	Moth
-Crying in Public	Moth
-Ottawa to Osaka	Moth
-Moth to the Flame	Moth
-Show U Off	Moth
-Unfinished Business	Moth
-NO Such Thing As Ilusion	Moth
-Star Treatment	Tranquility Base Hotel & Casino
-One Point Perspective	Tranquility Base Hotel & Casino
-American Sports	Tranquility Base Hotel & Casino
- Tranquility Base Hotel & Casino  	Tranquility Base Hotel & Casino
-Golden Trunks	Tranquility Base Hotel & Casino
-Four out of Five	Tranquility Base Hotel & Casino
-The Worlds First Ever  Monster Truck Front Flip	Tranquility Base Hotel & Casino
-Science Fiction	Tranquility Base Hotel & Casino
-She Looks Like Fun	Tranquility Base Hotel & Casino
-Batphone	Tranquility Base Hotel & Casino
-The Ultracheese	Tranquility Base Hotel & Casino
-My Propeller	Humbug
-Crying Lightning	Humbug
-Dangerous Animals	Humbug
-Secret Door	Humbug
-Potion Approaching	Humbug
-Fire and the Thud	Humbug
-Cornerstone	Humbug
-Dance Litlle Liar	Humbug
-Pretty Visitors	Humbug
-The Jewellers Hands	Humbug
- Shes Thunderstorms	Suck It and See
- Black Treacle	Suck It and See
- Brick by Brick	Suck It and See
-The Hellcat Spangled Shalalala	Suck It and See
-Dont Sit Down Cause Ive Moved Your Chair	Suck It and See
- Library Pictures	Suck It and See
- All My Own Stunts	Suck It and See
- Reckless Serenade	Suck It and See
- Piledriver Waltz	Suck It and See
- Love Is a Laserquest	Suck It and See
- Suck It and See	Suck It and See
- Thats Where Youre Wrong	Suck It and See
-Brianstorm	Favourite Worst Nightmare
-Teddy Picker	Favourite Worst Nightmare
-D is for Dangerous	Favourite Worst Nightmare
-Balaclava	Favourite Worst Nightmare
-Flouroscent Adolescent	Favourite Worst Nightmare
-Only Ones Who Know	Favourite Worst Nightmare
-Do Me A Favour	Favourite Worst Nightmare
-This House Is A Circus	Favourite Worst Nightmare
- If You Were There, Beware	Favourite Worst Nightmare
- The Bad Thing	Favourite Worst Nightmare
- Old Yellow Bricks	Favourite Worst Nightmare
-505	Favourite Worst Nightmare
- The View from the Afternoon	Whatever People Say I Am, Thats What Im Not
- I Bet You Look Good on the Dancefloor	Whatever People Say I Am, Thats What Im Not
- Fake Tales of San Francisco	Whatever People Say I Am, Thats What Im Not
- Dancing Shoes	Whatever People Say I Am, Thats What Im Not
- You Probably Couldnt See for the Lights but You Were Staring Straight at Me	Whatever People Say I Am, Thats What Im Not
- Still Take You Home	Whatever People Say I Am, Thats What Im Not
-Riot Van	Whatever People Say I Am, Thats What Im Not
- Red Light Indicates Doors Are Secured	Whatever People Say I Am, Thats What Im Not
- Mardy Bum	Whatever People Say I Am, Thats What Im Not
- Perhaps Vampires Is a Bit Strong But..	Whatever People Say I Am, Thats What Im Not
- When the Sun Goes Down	Whatever People Say I Am, Thats What Im Not
- From the Ritz to the Rubble	Whatever People Say I Am, Thats What Im Not
- A Certain Romance	Whatever People Say I Am, Thats What Im Not
+COPY public.song (songtitle, fromalbum, lengthsong) FROM stdin;
+ A Moment of Silence	Wiped Out!	00:00:30
+Prey	Wiped Out!	00:04:47
+Crybaby	Wiped Out!	00:03:56
+Wiped out!	Wiped Out!	00:06:15
+The Beach	Wiped Out!	00:04:17
+Daddy Issues	Wiped Out!	00:04:20
+ Baby Came Home 2 / Valentines	Wiped Out!	00:06:35
+ Greetings from Califournia	Wiped Out!	00:03:50
+Ferrari	Wiped Out!	00:03:03
+Single	Wiped Out!	00:04:20
+R.I.P. 2 My Youth	Wiped Out!	00:03:27
+How	I love you	00:05:14
+Afraid	I love you	00:04:11
+Everybodys Watching Me(Uh Oh)	I love you	00:03:58
+Sweater Weather	I love you	00:03:56
+Let it go	I love you	00:03:17
+Alleyways	I love you	00:04:27
+ W.D.Y.W.F.M?	I love you	00:04:19
+Flawless	I love you	00:04:06
+Female Robbery	I love you	00:03:29
+Staying Up	I love you	00:04:28
+Float	I love you	00:04:21
+Flowers	The Neighbourhood	00:03:18
+Scary love	The Neighbourhood	00:03:44
+Nervous	The Neighbourhood	00:04:09
+Void	The Neighbourhood	00:03:25
+Softcore	The Neighbourhood	00:03:29
+Blue	The Neighbourhood	00:03:13
+Sadderdaze	The Neighbourhood	00:04:10
+Revenge	The Neighbourhood	00:03:19
+You get me so high	The Neighbourhood	00:02:33
+Reflections	The Neighbourhood	00:04:04
+Too serious	The Neighbourhood	00:04:13
+Stuck with me	The Neighbourhood	00:04:18
+Cyber  S**	Hot Pink	00:02:46
+Wont Bite	Hot Pink	00:03:15
+Rules	Hot Pink	00:03:07
+Bottom bi**	Hot Pink	00:03:18
+Say So	Hot Pink	00:03:58
+Like That	Hot Pink	00:02:43
+Talk Dirty	Hot Pink	00:04:01
+Addiction	Hot Pink	00:03:28
+Streets	Hot Pink	00:03:41
+Shine	Hot Pink	00:02:40
+Better than me	Hot Pink	00:03:22
+Juicy	Hot Pink	00:03:23
+Look Up	Moth	00:02:14
+Polymorphing	Moth	00:04:43
+Romeo	Moth	00:03:08
+Ch-Ching	Moth	00:03:47
+Crying in Public	Moth	00:04:28
+Ottawa to Osaka	Moth	00:04:55
+Moth to the Flame	Moth	00:02:57
+Show U Off	Moth	00:03:32
+Unfinished Business	Moth	00:04:33
+NO Such Thing As Ilusion	Moth	00:06:26
+Star Treatment	Tranquility Base Hotel & Casino	00:05:54
+One Point Perspective	Tranquility Base Hotel & Casino	00:03:28
+American Sports	Tranquility Base Hotel & Casino	00:02:28
+ Tranquility Base Hotel & Casino  	Tranquility Base Hotel & Casino	00:03:31
+Golden Trunks	Tranquility Base Hotel & Casino	00:02:53
+Four out of Five	Tranquility Base Hotel & Casino	00:05:12
+The Worlds First Ever  Monster Truck Front Flip	Tranquility Base Hotel & Casino	00:03:00
+Science Fiction	Tranquility Base Hotel & Casino	00:03:05
+She Looks Like Fun	Tranquility Base Hotel & Casino	00:03:02
+Batphone	Tranquility Base Hotel & Casino	00:04:28
+The Ultracheese	Tranquility Base Hotel & Casino	00:03:37
+My Propeller	Humbug	00:03:27
+Crying Lightning	Humbug	00:03:43
+Dangerous Animals	Humbug	00:03:30
+Secret Door	Humbug	00:03:43
+Potion Approaching	Humbug	00:03:32
+Fire and the Thud	Humbug	00:03:57
+Cornerstone	Humbug	00:03:17
+Dance Litlle Liar	Humbug	00:04:43
+Pretty Visitors	Humbug	00:03:40
+The Jewellers Hands	Humbug	00:05:43
+ Shes Thunderstorms	Suck It and See	00:03:54
+ Black Treacle	Suck It and See	00:03:35
+ Brick by Brick	Suck It and See	00:02:59
+The Hellcat Spangled Shalalala	Suck It and See	00:03:00
+Dont Sit Down Cause Ive Moved Your Chair	Suck It and See	00:03:03
+ Library Pictures	Suck It and See	00:02:22
+ All My Own Stunts	Suck It and See	00:03:52
+ Reckless Serenade	Suck It and See	00:02:42
+ Piledriver Waltz	Suck It and See	00:03:23
+ Love Is a Laserquest	Suck It and See	00:03:11
+ Suck It and See	Suck It and See	00:03:45
+ Thats Where Youre Wrong	Suck It and See	00:04:16
+Brianstorm	Favourite Worst Nightmare	00:02:52
+Teddy Picker	Favourite Worst Nightmare	00:02:40
+D is for Dangerous	Favourite Worst Nightmare	00:02:14
+Balaclava	Favourite Worst Nightmare	00:02:47
+Flouroscent Adolescent	Favourite Worst Nightmare	00:02:53
+Only Ones Who Know	Favourite Worst Nightmare	00:03:01
+Do Me A Favour	Favourite Worst Nightmare	00:03:25
+This House Is A Circus	Favourite Worst Nightmare	00:03:09
+ If You Were There, Beware	Favourite Worst Nightmare	00:04:34
+ The Bad Thing	Favourite Worst Nightmare	00:02:43
+ Old Yellow Bricks	Favourite Worst Nightmare	00:03:07
+505	Favourite Worst Nightmare	00:04:13
+ The View from the Afternoon	Whatever People Say I Am, Thats What Im Not	00:03:38
+ I Bet You Look Good on the Dancefloor	Whatever People Say I Am, Thats What Im Not	00:02:53
+ Fake Tales of San Francisco	Whatever People Say I Am, Thats What Im Not	00:02:57
+ Dancing Shoes	Whatever People Say I Am, Thats What Im Not	00:02:21
+ You Probably Couldnt See for the Lights but You Were Staring Straight at Me	Whatever People Say I Am, Thats What Im Not	00:02:10
+ Still Take You Home	Whatever People Say I Am, Thats What Im Not	00:02:53
+Riot Van	Whatever People Say I Am, Thats What Im Not	00:02:14
+ Red Light Indicates Doors Are Secured	Whatever People Say I Am, Thats What Im Not	00:02:23
+ Mardy Bum	Whatever People Say I Am, Thats What Im Not	00:02:55
+ Perhaps Vampires Is a Bit Strong But..	Whatever People Say I Am, Thats What Im Not	00:04:28
+ When the Sun Goes Down	Whatever People Say I Am, Thats What Im Not	00:03:20
+ From the Ritz to the Rubble	Whatever People Say I Am, Thats What Im Not	00:03:13
+ A Certain Romance	Whatever People Say I Am, Thats What Im Not	00:05:31
 \.
 
 
 --
--- TOC entry 2692 (class 2606 OID 25006)
+-- TOC entry 2692 (class 2606 OID 25029)
 -- Name: album album_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -209,7 +210,7 @@ ALTER TABLE ONLY public.album
 
 
 --
--- TOC entry 2694 (class 2606 OID 25014)
+-- TOC entry 2694 (class 2606 OID 25037)
 -- Name: song song_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -218,17 +219,18 @@ ALTER TABLE ONLY public.song
 
 
 --
--- TOC entry 2695 (class 2606 OID 25015)
--- Name: song song_albumtitle_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 2695 (class 2606 OID 25038)
+-- Name: song song_fromalbum_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.song
-    ADD CONSTRAINT song_albumtitle_fkey FOREIGN KEY (albumtitle) REFERENCES public.album(albumtitle);
+    ADD CONSTRAINT song_fromalbum_fkey FOREIGN KEY (fromalbum) REFERENCES public.album(albumtitle);
 
 
--- Completed on 2020-10-25 17:16:30
+-- Completed on 2020-11-09 20:25:39
 
 --
 -- PostgreSQL database dump complete
 --
+
 
