@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <style>
+        table, th, td {
+          border: 1px solid rgb(32, 42, 220);
+          background-color: rgb(162, 203, 238);
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 5px;
+          text-align: left; 
+          font-family: 'Roboto', sans-serif;   
+        }
+        .boja {
+            background-color: rgb(209, 227, 243);
+            font-family: 'Roboto', sans-serif; 
+        }
+    </style>
+        
+        </style>
+</head>
+
+<body class="content boja ">
+
+<main class="main boja">
+
+  
+   
+        <table style="width:100%">
+            <tr>
+          <th>Album </th>
+           <th> Wiki </th>
+          <th> Artist </th>
+          <th>Genre</th>
+          <th>Length</th>
+          <th>Label</th>
+          <th>Released</th>
+          <th>Metacritic</th>
+          <th>Singles</th>
+          <th colspan="15">Songs </th>
+          
+            </tr>
+            <% for (const category of categories) { %>
+            <tr>
+    
+              <td><%= category.albumtitle %></td>
+              <td><%= category.wikipedia %></td>
+              <td><%= category.artist %></td>
+              <td><%= category.genre %></td>
+              <td><%= category.lengthalbum %></td>
+              <td><%= category.musiclabel %></td>
+              <td><%= category.released %></td>
+              <td><%= category.metacritic %></td>
+              <td><%= category.numberofsingles %></td>
+
+             
+              <td>
+              <% for (const item of category.items) { %>
+                      <% if(item.fromalbum==category.albumtitle) { %>
+               <%= item.songtitle %> - <%= item.lengthsong %> 
+                             
+                <% } %>
+                <% } %> </td>
+            </tr>
+            <% } %>
+      
+          </table>
+     
+
+    <h2 class="boja">Polje za pretragu</h2>    
+
+
+    <form  method="POST" id = "forma" class = "boja">
+      <div>
+        <label for="ImePolja" class= "label">Unesite vrijednost</label>
+        <input type="text" name = "quote"  id="ImePolja"> <br>
+      </div>
+  
+
+  <label for="ImeKategorije" class= "label" >Po ovoj vrijednosti će se pretraživati podaci:</label>
+  <select id="ImeKategorije" name="search">
+    <option value="svapolja">Sva polja</option>
+    <option value="albumtitle">Album</option>
+    <option value="wiki">Wiki</option>
+    <option value="artist">Artist</option>
+    <option value="genre">Genre</option>
+    <option value="lengthalbum"> Album length</option>
+    <option value="musiclabel">Label</option>
+    <option value="released">Released</option>
+    <option value="metacritic">Metacritic</option>
+    <option value="numberofsingles">Number of singles</option>
+    <option value="songtitle">Song title</option>
+    <option value="lengthsong">Song length</option>
+ 
+
+  </select>
+ 
+  <input type="submit" >
+</form>
+
+
+<table style="width:100%">
+  <tr>
+<th>Album </th>
+ <th> Wiki </th>
+<th> Artist </th>
+<th>Genre</th>
+<th>Length</th>
+<th>Label</th>
+<th>Released</th>
+<th>Metacritic</th>
+<th>Singles</th>
+<th colspan="15">Songs </th>
+
+</tr>
+
+<% if (quote != "")  { %>
+  <% if (search != "svapolja") { %>
+<% for (const category of categories) { %>
+
+ <% if ((category.albumtitle.includes(quote) && search=="albumtitle")|| (category.wikipedia.includes(quote) && search=="wiki" ) ||
+  (category.artist.includes(quote) && search=="artist") || (category.genre.includes(quote) && search=="genre") || (category.lengthalbum.includes(quote) && search=="lengthalbum")
+   || (category.musiclabel.includes(quote) && search == "musiclabel") || (quote==category.released && search== "released") || (quote==category.metacritic && search=="metacritic")
+  ||  (quote==category.numberofsingles && search=="numberofsingles") ) { %>
+
+<tr>
+
+  <td><%= category.albumtitle %></td>
+  <td><%= category.wikipedia %></td>
+  <td><%= category.artist %></td>
+  <td><%= category.genre %></td>
+  <td><%= category.lengthalbum %></td>
+  <td><%= category.musiclabel %></td>
+  <td><%= category.released %></td>
+  <td><%= category.metacritic %></td>
+  <td><%= category.numberofsingles %></td>
+
+ 
+  <td>
+    <% for (const item of category.items) { %>
+          <% if(item.fromalbum==category.albumtitle) { %>
+   <%= item.songtitle %> - <%= item.lengthsong %> 
+                 
+    <% } %>
+    <% } %> </td>
+</tr>
+<% } else  { %>
+ 
+  <% for (const item of category.items) { %>
+
+    <% if (((item.songtitle.includes(quote) && search=="songtitle")|| (item.lengthsong.includes(quote) && search=="lengthsong") )  ) { %>
+
+      <tr>
+
+        <td><%= category.albumtitle %></td>
+        <td><%= category.wikipedia %></td>
+        <td><%= category.artist %></td>
+        <td><%= category.genre %></td>
+        <td><%= category.lengthalbum %></td>
+        <td><%= category.musiclabel %></td>
+        <td><%= category.released %></td>
+        <td><%= category.metacritic %></td>
+        <td><%= category.numberofsingles %></td>
+      
+       
+        <td>
+          <% for (const item of category.items) { %>
+                <% if(item.fromalbum==category.albumtitle) { %>
+         <%= item.songtitle %> - <%= item.lengthsong %> 
+                       
+          <% } %>
+          <% } %> </td>
+      </tr>
+      <%break; %>
+
+<% } %>
+<% } %>
+<% } %>
+<% } %>
+<% } else { %>
+
+  <% for (const category of categories) { %>
+
+    <% if ((category.albumtitle.includes(quote))|| (category.wikipedia.includes(quote) ) ||
+     (category.artist.includes(quote)) || (category.genre.includes(quote)) || (category.lengthalbum.includes(quote) )
+      || (category.musiclabel.includes(quote)) || (quote==category.released) || (quote==category.metacritic )
+     ||  (quote==category.numberofsingles) ) { %>
+   <tr>
+   
+     <td><%= category.albumtitle %></td>
+     <td><%= category.wikipedia %></td>
+     <td><%= category.artist %></td>
+     <td><%= category.genre %></td>
+     <td><%= category.lengthalbum %></td>
+     <td><%= category.musiclabel %></td>
+     <td><%= category.released %></td>
+     <td><%= category.metacritic %></td>
+     <td><%= category.numberofsingles %></td>
+   
+    
+     <td>
+       <% for (const item of category.items) { %>
+             <% if(item.fromalbum==category.albumtitle) { %>
+      <%= item.songtitle %> - <%= item.lengthsong %> 
+                    
+       <% } %>
+       <% } %> </td>
+   </tr>
+   <% } else  { %>
+     <% for (const item of category.items) { %>
+   
+       <% if (((item.songtitle.includes(quote))|| (item.lengthsong.includes(quote)) )  ) { %>
+   
+         <tr>
+   
+           <td><%= category.albumtitle %></td>
+           <td><%= category.wikipedia %></td>
+           <td><%= category.artist %></td>
+           <td><%= category.genre %></td>
+           <td><%= category.lengthalbum %></td>
+           <td><%= category.musiclabel %></td>
+           <td><%= category.released %></td>
+           <td><%= category.metacritic %></td>
+           <td><%= category.numberofsingles %></td>
+         
+          
+           <td>
+             <% for (const item of category.items) { %>
+                   <% if(item.fromalbum==category.albumtitle) { %>
+            <%= item.songtitle %> - <%= item.lengthsong %> 
+                          
+             <% } %>
+             <% } %> </td>
+         </tr>
+         <%break; %>
+  <% } %>
+  <% } %>
+  <% } %>
+  <% } %>
+
+
+<% } %>
+<% } %>
+
+
+</table>
+         
+<script>
+
+</script>
+ 
+</main>
+
+
+
+
+
+</body>
+
+</html>
