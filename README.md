@@ -5,7 +5,7 @@ Autor : Lucija Zakarija
 Verzija : 2.0  
 Jezik : engleski  
 U bazi se nalaze 2 entiteta : Album i Song  
-Atributi navedeni u CSV i JSON datotekama :  
+Atributi navedeni u bazi :  
 Atributi uz Album:  
 albumtitle - primarni ključ, svaki album ima svoje posebno ime    
 wikipedia- wiki handle na album    
