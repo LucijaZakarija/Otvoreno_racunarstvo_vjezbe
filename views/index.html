@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+    <meta name="author" content="Lucija Zakarija">
+    <meta name ="title" content="Glazbeni Album">
+    <meta name="description" content="Glazbeni Albumi">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <style>
+        .content {
+            background-color: rgb(162, 203, 238);
+        }
+        .boja {
+            background-color: rgb(209, 227, 243);
+            font-family: 'Roboto', sans-serif; 
+        }
+        .boja2 {
+            background-color: rgb(193, 219, 241);
+            font-family: 'Roboto', sans-serif; 
+        }
+        .boja3 {
+            background-color: rgb(174, 203, 228);
+            font-family: 'Roboto', sans-serif; 
+        }
+        .boja4 {
+            background-color: rgb(58, 139, 211);
+            font-family: 'Roboto', sans-serif; 
+        }
+    </style>
+</head>
+
+<body class="content">
+
+
+
+<main class="main">
+   <h1 class="boja4">Glazbeni Album</h1>
+   <div class="boja3">
+   <h2>Autor : Lucija Zakarija</h2>
+   <h2>Licencija : Creative Commons Zero v1.0 Universal</h2>
+   <h2>Jezik : engleski</h2>
+</div>
+   <div class="boja2"> 
+   <h2>U bazi se nalaze 2 entiteta : Album i Song, te pripadajući atributi</h2>
+   <h2>Opis atributa entiteta Album</h2>
+   <h3>albumtitle - primarni ključ, svaki album ima svoje posebno ime,
+    wikipedia- wiki handle na album,
+    artist- ime izvođača,
+    genre- žanr kojem album pripada,
+    lenghtalbum- duljina albuma izražena kao sati:minute:sekunde,
+    musiclabel- izdavačka kuća,
+    released- datum izdavanja albuma,
+    metacritic- broj koji je album ostvario prema Metacriticu u vrijednosti 0-100,
+    numberofsingles- broj singleova s albuma</h3>
+    <h2>Opis atributa entiteta Song </h2>
+
+    <h3>songtitle- ime pjesme, primarni ključ,
+        lengthsong- duljina pjesme izražena ako sati:minute:sekunde,
+        fromalbum- FK, veza 1:n s albumom</h3>
+   </div>
+        <div class="boja"> 
+   <h1>Dohvatite sadržaj!</h1>
+ 
+<a href="/Album.csv" download>
+CSV
+</a>
+<a href="/Album.json" download>
+      JSON
+</a>
+
+<h1>Dohvatite filtrirani sadržaj!</h1>
+<a href="/Album_2.csv" download>
+CSV
+</a>
+<a href="/Album_2.json" download>
+    JSON
+</a>
+
+</div>
+</main>
+
+
+
+</body>
+
+</html>

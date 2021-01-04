@@ -1,0 +1,487 @@
+{
+   "swagger":"2.0",
+   "info":{
+      "version":"1.0.0",
+      "title":"Album repository",
+      "termsOfService":"http://swagger.io/terms/",
+      "contact":{
+         "email":"lucija.zakarija@fer.hr"
+      },
+      "license":{
+         "name":"Creative Commons Zero v1.0 Universal "
+      }
+   },
+   "host":"localhost:3000",
+   "basePath":"/api",
+   "tags":[
+      {
+         "name":"albums",
+         "description":"Access to Album repository"
+      },
+      {
+         "name":"songs",
+         "description":"Access to Songs from Album repository"
+      }
+   ],
+   "schemes":[
+      "https",
+      "http"
+   ],
+   "paths":{
+      "/albums":{
+         "get":{
+            "tags":[
+               "albums"
+            ],
+            "summary":"Returns list of all albums in repository",
+            "description":"Returns a map of status codes to quantities",
+            "operationId":"readAlbums",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#/definitions/Albums"
+                  }
+               }
+            }
+         }
+      },
+      "/albums/label/{label}":{
+         "get":{
+            "tags":[
+               "albums"
+            ],
+            "summary":" Returns all albums made by  music label",
+            "operationId":"searchALbumsByLabel",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"label",
+                  "in":"path",
+                  "description":"Label must be string",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#/definitions/Albums"
+                  }
+               },
+               "404":{
+                  "description":"There is no album with that label"
+               }
+            }
+         }
+      },
+
+        "/albums/{title}":{
+      "delete": {
+        "tags": [
+          "albums"
+        ],
+        "summary": "Delete album with given title",
+        "operationId": "deleteAlbumsByTitle",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "path",
+            "description": "The title must be string ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+            
+          },
+          "404": {
+            "description": "There is no album with that title"
+          }
+        }
+      }
+
+       },
+
+      "/albums/wikipedia/{wikipedia}":{
+         "get":{
+            "tags":[
+               "albums"
+            ],
+            "summary":" Returns albums with given Wikipedia  handle",
+            "operationId":"readAlbumsByWiki",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"wikipedia",
+                  "in":"path",
+                  "description":" The link must be string",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#/definitions/Albums"
+                  }
+               },
+          "404": {
+            "description": "There is no album with that Wiki handle"
+          }
+            }
+         }
+      },
+       "/albums/artist/{artist}":{
+         "get":{
+            "tags":[
+               "albums"
+            ],
+            "summary":" Returns albums with given artist ",
+            "operationId":"readAlbumsByArtist",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"artist",
+                  "in":"path",
+                  "description":" The link must be string",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation",
+                  "schema":{
+                     "$ref":"#/definitions/Albums"
+                  }
+               },
+               
+          "404": {
+            "description": "There is no album from that artist"
+          }
+            }
+         }
+      },
+         "/songs":{
+            "get":{
+               "tags":[
+                  "songs"
+               ],
+               "summary":"Returns list of all  songs in repository",
+               "description":"Returns a map of status codes to quantities",
+               "operationId":"readSongs",
+               "produces":[
+                  "application/json"
+               ],
+               "parameters":[
+                  
+               ],
+               "responses":{
+                  "200":{
+                     "description":"successful operation",
+                     "schema":{
+                        "$ref":"#/definitions/Songs"
+                     }
+                  }
+               }
+            }
+         },
+         "/songsFromAlbum/{id}":{
+            "get":{
+               "tags":[
+                  "songs"
+               ],
+               "summary":"Returs list of filtered  songs for Albums with musiclabel, Wiki handle or artist as in id",
+               "description":"",
+               "operationId":"readISongs",
+               "produces":[
+                  "application/json"
+               ],
+               "parameters":[
+                  {
+                     "name":"id",
+                     "in":"path",
+                     "description":"The id must be string ",
+                     "required":true,
+                     "type":"string"
+                  }
+               ],
+               "responses":{
+                  "200":{
+                     "description":"successful operation",
+                     "schema":{
+                        "$ref":"#/definitions/Songs"
+                     }
+                     },
+        		  "404": {
+           		 "description": "There is no album with that Wiki handle"
+                    }
+               }
+            
+         }
+      },
+      "/songs/{name}":{
+         "put":{
+            "tags":[
+               "songs"
+            ],
+            "summary":" Update album parameter in song with given name",
+            "operationId":"updateSongByName",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"body",
+                  "in":"body",
+                  "description":"add album that you want to change",
+                  "required":true,
+                  "schema":{
+                     "$ref":"#/definitions/SongsBody"
+                  }
+               },
+               {
+                  "name":"name",
+                  "in":"path",
+                  "description":"Type name of song that you want to update",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation"
+               },
+               "404":{
+                  "description":"There isn't song with given ID"
+               }
+            }
+         }
+      },
+     
+      "/songs/":{
+         "post":{
+            "tags":[
+               "songs"
+            ],
+            "summary":"Creates song of given input parametars",
+            "description":"add parameters for new song",
+            "operationId":"createSong",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "in":"body",
+                  "name":"body",
+                  "description":"SOng that needs to be added to the album",
+                  "required":true,
+                  "schema":{
+                     "$ref":"#/definitions/SongsBody"
+                  }
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"successful operation"
+                  },
+             "400": {
+                "description": "There is already a song with that name"
+             }
+
+          
+            }
+         }
+      }
+   },
+   "definitions":{
+      "Albums":{
+         "type":"object",
+         "properties":{
+            "status":{
+               "type":"string"
+            },
+            "message":{
+               "type":"string"
+            },
+            "response":{
+               "type":"object",
+               "properties":{
+            "Albums":{
+               "type":"array",
+               "items":{
+                  "type":"object",
+                  "properties":{
+                     "albumtitle":{
+                        "type":"string"
+                     },
+                     "wikipedia":{
+                        "type":"string"
+                     },
+                     "artist":{
+                        "type":"string"
+                     },
+                     "metacritic":{
+                        "type":"number"
+                     },
+                     "lengthalbum":{
+                        "type":"string"
+                     },
+                     "musiclabel":{
+                        "type":"string"
+                     },
+                     "numberofsingles":{
+                        "type":"number"
+                     }
+                  }
+               }
+            },
+            "links":{
+               "type":"array",
+               "items":{
+                  "type":"object",
+                  "properties":{
+                     "rel":{
+                        "type":"string"
+                     },
+                     "method":{
+                        "type":"string"
+                     },
+                     "title":{
+                        "type":"string"
+                     },
+                     "href":{
+                        "type":"string"
+                     }
+                  }
+               }
+            }
+         }
+      }
+         }
+      },
+      "Songs":{
+         "type":"object",
+         "properties":{
+            "status":{
+               "type":"string"
+            },
+            "message":{
+               "type":"string"
+            },
+            "response":{
+               "type":"object",
+               "properties":{
+                  "Songs":{
+                     "type":"array",
+                     "items":{
+                        "type":"object",
+                        "properties":{
+                           "name":{
+                              "type":"string"
+                           },
+                           "fromalbum":{
+                              "type":"string"
+                           },
+                           "songlength":{
+                              "type":"number"
+                           }
+                        }
+                     }
+                  },
+                  "links":{
+                     "type":"array",
+                     "items":{
+                        "type":"object",
+                        "properties":{
+                           "rel":{
+                              "type":"string"
+                           },
+                           "method":{
+                              "type":"string"
+                           },
+                           "title":{
+                              "type":"string"
+                           },
+                           "href":{
+                              "type":"string"
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "SongsBody":{
+         "type":"object",
+         "properties":{
+            "songtitle":{
+               "type":"string"
+            },
+            "fromalbum":{
+               "type":"string"
+            },
+            "lengthsong":{
+               "type":"number"
+            }
+         }
+      },
+      "AlbumsBody":{
+         "type":"object",
+         "properties":{
+            "albumtitle":{
+               "type":"string"
+            },
+            "wikipedia":{
+               "type":"string"
+            },
+            "artist":{
+               "type":"string"
+            },
+            "genre":{
+               "type":"string"
+            },
+            "metacritic":{
+               "type":"number"
+            },
+            "lengthalbum":{
+               "type":"number"
+            },
+            "released":{
+               "type":"string"
+            },
+            "musiclabel":{
+               "type":"string"
+            },
+            "numberofsingles":{
+               "type":"number"
+            }
+         }
+      }
+   },
+   "externalDocs":{
+      "description":"Find out more about Swagger",
+      "url":"http://swagger.io"
+   }
+}

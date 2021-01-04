@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://or.fer.unizg.hr/album.json",
+  "type": "array",
+  "title" : "OR Albumi",
+  "description": "Skup glazbenih albuma za otvoreno računarstvo.",
+  "items": {
+    "type": "object",
+    "title": "album",
+	"description": "Objekt koji sadrži sve podatke o jednom glazbenom albumu",
+
+    "properties": {
+      "albumtitle": {
+        "type": "string",
+        "title" : "Naziv glazbenog albuma",
+	"description" : "Naziv glazbenog albuma."
+      },
+      "wikipedia": {
+        "type": "string",
+        "title" : "Wikipedia stranica",
+	"description" : "Naziv wikipedia stranice."
+      },
+      "artist": {
+        "type": "string",
+        "title" : "Izvođač",
+	"description" : "Naziv izvođača."
+      },
+      "genre": {
+        "type": "string",
+       "title" : "Žanr",
+	"description" : "Glazbeni žanr uobičajena je kategorija koja identificira neka  glazbena djela koja pripadaju zajedničkoj tradiciji ili skupu konvencija."
+      },
+      "metacritic": {
+        "type": "integer",
+	"title" : "Metacritic",
+        "description" : "Metacritic objedinjuje glazbene, igračke, televizijske i filmske kritike vodećih kritičara te objavjluje ocjenu 0-100."
+      },
+      "lengthalbum": {
+        "type": "string",
+	"title" : "Duljina albuma",
+        "description" : "Duljina albuma izražena kao hh:mm:ss."
+      },
+      "released": {
+        "type": "string",
+	"title" : "Datum izdavanja albuma",
+        "description" : "Datum izdavanja albuma izražen kao y-d-m."
+      },
+      "musiclabel": {
+        "type": "string",
+	"title" : "Izdavačka kuća",
+        "description" : "Ime izdavačke kuće glazbenog albuma."
+      },
+      "numberofsingles": {
+        "type": "integer",
+	"title" : "Broj singleova",
+        "description" : "Broj pjesama koje su objavljenje samostalno."
+      },
+      "songs": {
+        "type": "array",
+	"title" : "Pjesme",
+        "description" : "Pjesme koje se nalaze na albumu." ,
+        "items": {
+          "type": "object",
+	  "title" : "Pjesme",
+          "description" : "Pjesme koje se nalaze na albumu." ,
+          "properties": {
+            "song": {
+              "type": "string",
+	  "title" : "Pjesma",
+          "description" : "Ime pjesme"
+            },
+            "songlength": {
+              "type": "string",
+	  "title" : "Duljina trajanja pjesme",
+          "description" : "Duljina trajanja pjesme izražena u minutama."
+            }
+          },
+          "required": [
+            "song",
+            "songlength"
+          ]
+        }
+      }
+    },
+    "required": [
+      "albumtitle",
+      "wikipedia",
+      "artist",
+      "genre",
+      "metacritic",
+      "lengthalbum",
+      "released",
+      "musiclabel",
+      "numberofsingles",
+      "songs"
+    ]
+  }
+}
+
