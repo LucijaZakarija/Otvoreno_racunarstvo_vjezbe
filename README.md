@@ -2,7 +2,7 @@
 Laboratorijske vježbe iz predmeta Otvoreno računarstvo.  
 Otvorena licencija: Creative Commons Zero v1.0 Universal  
 Autor : Lucija Zakarija  
-Verzija : 2.0  
+Verzija : 3.0  
 Jezik podataka u bazi je engleski, a sama stranica je na hrvatskom   
 U bazi se nalaze 2 entiteta : Album i Song  
 Atributi navedeni u bazi :  
