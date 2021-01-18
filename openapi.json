@@ -1,5 +1,5 @@
 {
-   "swagger":"2.0",
+   "openapi":"3.0.0",
    "info":{
       "version":"1.0.0",
       "title":"Album repository",
@@ -111,6 +111,37 @@
           },
           "404": {
             "description": "There is no album with that title"
+          }
+        }
+      }
+
+       },
+      "/albums/wikipedia/{wikipedia}/picture":{
+      "get": {
+        "tags": [
+          "albums"
+        ],
+        "summary": "Get picture of album with that wiki handle",
+        "operationId": "showPicture",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "wikipedia",
+            "in": "path",
+            "description": "The title must be string ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+            
+          },
+          "404": {
+            "description": "There is no album with that wiki handle"
           }
         }
       }
@@ -327,6 +358,22 @@
             "response":{
                "type":"object",
                "properties":{
+                    "@context": {
+              "type": "object",
+              "properties": {
+                "artist": {
+                  "type": "string"
+                },
+                "metacritic": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "artist",
+                "metacritic"
+  
+              ]
+            },
             "Albums":{
                "type":"array",
                "items":{
@@ -352,7 +399,10 @@
                      },
                      "numberofsingles":{
                         "type":"number"
-                     }
+                     },
+            "picture":{
+               "type":"string"
+            }
                   }
                }
             },
@@ -391,7 +441,8 @@
             },
             "response":{
                "type":"object",
-               "properties":{
+            "properties": {
+         
                   "Songs":{
                      "type":"array",
                      "items":{
