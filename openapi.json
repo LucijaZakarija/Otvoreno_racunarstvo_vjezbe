@@ -139,9 +139,6 @@
           "200": {
             "description": "successful operation"
             
-          },
-          "404": {
-            "description": "There is no album with that wiki handle"
           }
         }
       }

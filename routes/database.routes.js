@@ -152,8 +152,7 @@ var na= JSON.parse(an)
 
 console.log(AlbumiLista[0].wikipedia)
 console.log(AlbumiLista[0])
-//AlbumiLista[0].slika= "/albums/wikipedia/" + AlbumiLista[0].wikipedia+ "/picture";
-//console.log(AlbumiLista[0].slika)
+console.log("lalalaal")
 
 brojAlbuma = AlbumiLista.length
 console.log( AlbumiLista.length + "lalalalala")
