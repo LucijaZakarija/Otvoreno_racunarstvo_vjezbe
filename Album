@@ -84,6 +84,24 @@ ALTER TABLE public.song OWNER TO postgres;
 -- Dependencies: 202
 -- Data for Name: album; Type: TABLE DATA; Schema: public; Owner: postgres
 --
+ CREATE TABLE public.picture (
+    route character varying NOT NULL,
+    wikipedia character varying NOT NULL,
+    downloaded timestamp NOT NULL
+);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\Favourite_Worst_Nightmare.jpg', 'Favourite_Worst_Nightmare', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\Hot_Pink_(album).jpg', 'Hot_Pink_(album)', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\Humbug_(album).jpg', 'Humbug_(album)', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\I_Love_You_(The_Neighbourhood_album).jpg', 'I_Love_You_(The_Neighbourhood_album)', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\Moth_(album).jpg', 'Moth_(album)', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\Suck_It_and_See.jpg', 'Suck_It_and_See', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\The_Neighbourhood_(album).jpg', 'The_Neighbourhood_(album)', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\Tranquility_Base_Hotel_&_Casino.jpg', 'Tranquility_Base_Hotel_&_Casino.', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\Wiped_Out!.jpg', 'Wiped_Out!', CURRENT_TIMESTAMP);
+INSERT INTO public.picture (route, wikipedia, downloaded) VALUES ('C:\FER\3.GODINA\5.semestar\OR\albumPravi\album\lab\images\Whatever_People_Say_I_Am,_That%27s_What_I%27m_Not.jpg', 'Whatever_People_Say_I_Am,_That%27s_What_I%27m_Not', CURRENT_TIMESTAMP);
+
+
+
 
 INSERT INTO public.album (albumtitle, wikipedia, artist, genre, lengthalbum, musiclabel, released, metacritic, numberofsingles) VALUES ('Wiped Out!', 'Wiped_Out!', 'The Neighbourhood', 'Alternative rock', '00:45:18', 'Columbia', '2015-10-13', 53, 1);
 INSERT INTO public.album (albumtitle, wikipedia, artist, genre, lengthalbum, musiclabel, released, metacritic, numberofsingles) VALUES ('I love you', 'I_Love_You_(The_Neighbourhood_album)', 'The Neighbourhood', 'Alternative rock', '00:45:46', 'Columbia', '2013-04-22', 48, 4);
